@@ -1,12 +1,10 @@
-
-if(NOT TARGET glfw3)
-  find_package(glfw3 REQUIRED)
-endif()
-
-if(NOT TARGET Vulkan)
-  find_package(Vulkan REQUIRED)
-endif()
-
-if(NOT TARGET spdlog)
-  find_package(spdlog REQUIRED)
+if (WIN32)
+  include(cmake/windows/FindGLFW.cmake)
+  include(cmake/windows/FindSpdlog.cmake)
+  include(cmake/windows/FindVulkan.cmake)
+  include(cmake/windows/FindTomlpp.cmake)
+elseif(UNIX)
+  include(cmake/unix/FindGLFW.cmake)
+  include(cmake/unix/FindSpdlog.cmake)
+  include(cmake/unix/FindVulkan.cmake)
 endif()

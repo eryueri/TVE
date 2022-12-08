@@ -14,7 +14,7 @@ include_directories(
 
 add_subdirectory(./src)
 
-add_library(TVE SHARED ${SOURCE_FILES})
+add_library(TVE STATIC ${SOURCE_FILES})
 
 target_precompile_headers(TVE
   PRIVATE
@@ -23,7 +23,8 @@ target_precompile_headers(TVE
 target_link_libraries(TVE
   PRIVATE
   glfw
-  spdlog::spdlog)
+  spdlog::spdlog
+  tomlplusplus)
 
 add_executable(main
   main.cc)
