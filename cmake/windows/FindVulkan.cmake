@@ -1,5 +1,5 @@
 if (NOT TARGET Vulkan::Vulkan)
-  set(VULKAN_DIR "C:/VulkanSDK/1.3.224.1/")
+  set(VULKAN_DIR $ENV(VK_SDK_PATH))
   set(VULKAN_INCLUDE_DIR "${VULKAN_DIR}/Include")
   set(VULKAN_LIB "${VULKAN_DIR}/Lib/vulkan-1.lib")
   add_library(Vulkan::Vulkan STATIC IMPORTED GLOBAL)

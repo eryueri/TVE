@@ -2,3 +2,5 @@
 build
 config
 .vscode
+.vs
+out

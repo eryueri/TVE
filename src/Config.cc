@@ -4,7 +4,7 @@
 
 #include "toml++/toml.h"
 
-#include "Logger.hh"
+#include "Core/Logger.hh"
 #include <spdlog/spdlog.h>
 
 TVE::Config::LoadData TVE::Config::settings;
