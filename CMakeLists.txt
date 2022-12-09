@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
+include(cmake/Platform.cmake)
+
 project(TVE-trash-vulkan-engine)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,21 +16,4 @@ include_directories(
 
 add_subdirectory(./src)
 
-add_library(TVE STATIC ${SOURCE_FILES})
-
-target_precompile_headers(TVE
-  PRIVATE
-  ${PCH_HEADER})
-
-target_link_libraries(TVE
-  PRIVATE
-  glfw
-  spdlog::spdlog
-  tomlplusplus)
-
-add_executable(main
-  main.cc)
-
-target_link_libraries(main
-  PRIVATE
-  TVE)
+include(cmake/Build.cmake)

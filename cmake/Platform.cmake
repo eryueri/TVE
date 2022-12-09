@@ -1,0 +1,5 @@
+if(WIN32)
+  set(CMAKE_GENERATOR "Visual Studio 17 2022")
+elseif(UNIX)
+  set(CMAKE_GENERATOR "Ninja")
+endif()

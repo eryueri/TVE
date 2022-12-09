@@ -1,5 +1,5 @@
 #include "Core/Logger.hh"
-#include "Config.hh"
+#include "Core/Config.hh"
 
 int main() {
   TVE::Logger::Init();
