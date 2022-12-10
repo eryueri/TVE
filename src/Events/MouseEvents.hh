@@ -5,10 +5,10 @@
 namespace TVE {
   class MouseMoved : public Event {
   public:
-    float _x;
-    float _y;
+    double _x;
+    double _y;
 
-    MouseMoved(float x, float y)
+    MouseMoved(double x, double y)
       : _x(x), _y(y) {}
     
     EVENT_CLASS_TYPE(MouseMoved);
@@ -34,11 +34,9 @@ namespace TVE {
   class MouseButtonPressed : public Event {
   public:
     uint8_t _button;
-    float _x;
-    float _y;
 
-    MouseButtonPressed(uint8_t button, float x, float y)
-      : _button(button), _x(x), _y(y) {}
+    MouseButtonPressed(uint8_t button)
+      : _button(button) {}
 
     EVENT_CLASS_TYPE(MouseButtonPressed);
     EVENT_CLASS_CATEGORY(EventCategory::Input | EventCategory::MouseButton);
@@ -49,11 +47,9 @@ namespace TVE {
   class MouseButtonReleased : public Event {
   public:
     uint8_t _button;
-    float _x;
-    float _y;
 
-    MouseButtonReleased(uint8_t button, float x, float y)
-      : _button(button), _x(x), _y(y) {}
+    MouseButtonReleased(uint8_t button)
+      : _button(button) {}
 
     EVENT_CLASS_TYPE(MouseButtonReleased);
     EVENT_CLASS_CATEGORY(EventCategory::Input | EventCategory::MouseButton);

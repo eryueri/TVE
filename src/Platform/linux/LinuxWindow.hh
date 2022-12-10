@@ -1,18 +1,18 @@
 #pragma once
 
-#include "Core/TVEWindow.hh"
+#include "Window/Window.hh"
 
 struct GLFWwindow;
 
 namespace TVE {
-  class TVELinuxWindow : public TVEWindow {
+  class LinuxWindow : public Window {
   public:
-    TVELinuxWindow(const WindowProperties& prop);
+    LinuxWindow(const WindowProperties& prop);
 
     virtual uint32_t getWidth() const override;
     virtual uint32_t getHeight() const override;
     virtual void onUpdate() override;
-    virtual void setEventCallback() override;
+    virtual void setEventCallback(const EventCallbackFunc& func) override;
   private:
     void initData(const WindowProperties& prop);
     void clean();
@@ -23,6 +23,7 @@ namespace TVE {
       uint32_t width, height;
       uint32_t offsetx, offsety;
       std::string title;
+      EventCallbackFunc func;
     };
 
     WindowData _data;

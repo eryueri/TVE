@@ -18,10 +18,10 @@ namespace TVE {
   };
   class WindowMove : public Event {
   public:
-    float _x;
-    float _y;
+    int _x;
+    int _y;
 
-    WindowMove(float x, float y)
+    WindowMove(int x, int y)
       : _x(x), _y(y) {}
 
     EVENT_CLASS_TYPE(WindowResize);

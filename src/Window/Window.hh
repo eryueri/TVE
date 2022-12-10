@@ -16,15 +16,13 @@ namespace TVE {
         const std::string& title = "TVE") 
       : width(width), height(height), offsetx(offsetx), offsety(offsety), title(title) {}
   };
-  class TVEWindow {
+  class Window {
   public:
     using EventCallbackFunc = std::function<void(Event&)>;
-
-    static TVEWindow* CreateWindow(const WindowProperties& prop);
 
     virtual uint32_t getWidth() const = 0;
     virtual uint32_t getHeight() const = 0;
     virtual void onUpdate() = 0;
-    virtual void setEventCallback() = 0;
+    virtual void setEventCallback(const EventCallbackFunc& func) = 0;
   };
 }
