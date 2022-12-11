@@ -110,6 +110,12 @@ namespace TVE {
           default: break;
           }
         });
+
+    ++windowNum;
+  }
+
+  LinuxWindow::~LinuxWindow() {
+
   }
 
   uint32_t LinuxWindow::getWidth() const {
@@ -134,5 +140,12 @@ namespace TVE {
     _data.offsetx = prop.offsetx;
     _data.offsety = prop.offsety;
     _data.title = prop.title;
+  }
+
+  void LinuxWindow::cleanup() {
+    --windowNum;
+    if (windowNum == 0) {
+      glfwTerminate();
+    }
   }
 }

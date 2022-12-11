@@ -5,6 +5,6 @@
 namespace TVE {
   class WindowCreator {
   public:
-    static Window* CreateWindow();
+    static Window* CreateWindow(const WindowProperties& prop);
   };
 }

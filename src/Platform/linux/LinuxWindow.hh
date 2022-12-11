@@ -7,7 +7,9 @@ struct GLFWwindow;
 namespace TVE {
   class LinuxWindow : public Window {
   public:
+    LinuxWindow() = delete;
     LinuxWindow(const WindowProperties& prop);
+    ~LinuxWindow();
 
     virtual uint32_t getWidth() const override;
     virtual uint32_t getHeight() const override;
@@ -15,7 +17,7 @@ namespace TVE {
     virtual void setEventCallback(const EventCallbackFunc& func) override;
   private:
     void initData(const WindowProperties& prop);
-    void clean();
+    void cleanup();
   private:
     GLFWwindow* _window;
 

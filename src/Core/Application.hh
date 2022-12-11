@@ -8,11 +8,9 @@ namespace TVE {
     Application();
     virtual ~Application();
     void run();
+    void onEvent(Event& e);
   private:
-    void init();
-    void cleanup();
-  private:
-    bool _running;
-    Window* _window;
+    bool _running = false;
+    std::unique_ptr<Window> _window;
   };
 }

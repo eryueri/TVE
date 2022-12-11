@@ -18,6 +18,8 @@ namespace TVE {
   };
   class Window {
   public:
+    Window() = default;
+    virtual ~Window() = default;
     using EventCallbackFunc = std::function<void(Event&)>;
 
     virtual uint32_t getWidth() const = 0;

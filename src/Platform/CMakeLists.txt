@@ -1,0 +1,6 @@
+add_subdirectory(./linux)
+
+set(PLATFORM_SOURCE_FILES
+  ${LINUX_SOURCE_FILES}
+  # ${WINDOWS_SOURCE_FILES}
+  PARENT_SCOPE)
