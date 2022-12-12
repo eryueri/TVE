@@ -28,6 +28,7 @@ elseif(UNIX)
   target_link_libraries(TVE
     PRIVATE
     glfw
+    PUBLIC
     spdlog::spdlog)
 
   add_executable(main

@@ -1,6 +1,6 @@
 #include "Application.hh"
 
-#include "spdlog/spdlog.h"
+#include "Events/Event.hh"
 #include "Core/Logger.hh"
 #include "Window/WindowCreator.hh"
 
@@ -15,7 +15,7 @@ namespace TVE {
   }
 
   void Application::onEvent(Event& e) {
-    Logger::ConsoleLog()->trace("event");
+    TVE_TRACE(e.verboseStr());
   }
 
   void Application::run() {

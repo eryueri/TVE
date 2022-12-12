@@ -46,7 +46,7 @@ namespace TVE {
         _window, 
         [](GLFWwindow* window, int focused) {
           WindowData* data = reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
-          if (focused == GLFW_FOCUSED) {
+          if (focused) {
             WindowFocus event{};
             data->func(event);
           } else {
@@ -89,7 +89,7 @@ namespace TVE {
         _window, 
         [](GLFWwindow* window, double xpos, double ypos) {
           WindowData* data = reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
-          MouseMoved event{xpos, ypos};
+          MouseMoved event{(float)xpos, (float)ypos};
           data->func(event);
         });
 
@@ -109,6 +109,16 @@ namespace TVE {
           } break;
           default: break;
           }
+        });
+
+    glfwSetScrollCallback(
+        _window, 
+        [](GLFWwindow* window, double xoffset, double yoffset) {
+          WindowData* data = reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
+
+          MouseScroll event{(float)xoffset, (float)yoffset};
+
+          data->func(event);
         });
 
     ++windowNum;

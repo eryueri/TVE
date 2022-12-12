@@ -1,7 +1,6 @@
 #include "Logger.hh"
 
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
+#include <spdlog/sinks/stdout_color_sinks.h>
 
 namespace TVE {
   std::shared_ptr<spdlog::logger> Logger::ConsoleLogger;

@@ -5,10 +5,10 @@
 namespace TVE {
   class MouseMoved : public Event {
   public:
-    double _x;
-    double _y;
+    float _x;
+    float _y;
 
-    MouseMoved(double x, double y)
+    MouseMoved(float x, float y)
       : _x(x), _y(y) {}
     
     EVENT_CLASS_TYPE(MouseMoved);
