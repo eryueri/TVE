@@ -25,7 +25,7 @@ namespace TVE {
     MouseScroll(float xoffset, float yoffset)
       : _xoffset(xoffset), _yoffset(yoffset) {}
     
-    EVENT_CLASS_TYPE(MouseMoved);
+    EVENT_CLASS_TYPE(MouseScroll);
     EVENT_CLASS_CATEGORY(EventCategory::Input | EventCategory::MouseMove);
 
     std::string verboseStr() const override;

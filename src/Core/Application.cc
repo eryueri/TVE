@@ -1,13 +1,16 @@
 #include "Application.hh"
 
 #include "Events/Event.hh"
+#include "Events/WindowEvents.hh"
+#include "Events/KeyEvents.hh"
+#include "Events/MouseEvents.hh"
 #include "Core/Logger.hh"
 #include "Window/WindowCreator.hh"
 
 namespace TVE {
   Application::Application() {
     _window = std::unique_ptr<Window>(WindowCreator::CreateWindow(WindowProperties{}));
-    _window->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
+    _window->setEventCallback(BIND_ON_EVENT_FUNCTION(Application::onEvent));
   }
 
   Application::~Application() {
@@ -15,7 +18,17 @@ namespace TVE {
   }
 
   void Application::onEvent(Event& e) {
-    TVE_TRACE(e.verboseStr());
+    EventDispatcher d{e};
+    d.dispatch<WindowClose>(BIND_ON_EVENT_FUNCTION(Application::onWindowClose));
+
+    for (auto layer : _stack) {
+      layer->onEvent(e);
+    }
+  }
+
+  void Application::onWindowClose(WindowClose& e) {
+    TVE_CRITICAL("WINDOW CLOSED");
+    _running = false;
   }
 
   void Application::run() {

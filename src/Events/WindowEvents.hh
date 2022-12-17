@@ -24,7 +24,7 @@ namespace TVE {
     WindowMove(int x, int y)
       : _x(x), _y(y) {}
 
-    EVENT_CLASS_TYPE(WindowResize);
+    EVENT_CLASS_TYPE(WindowMove);
     EVENT_CLASS_CATEGORY(static_cast<uint8_t>(EventCategory::Window));
 
     std::string verboseStr() const override;
@@ -33,7 +33,7 @@ namespace TVE {
   public:
     WindowFocus() {}
 
-    EVENT_CLASS_TYPE(WindowResize);
+    EVENT_CLASS_TYPE(WindowFocus);
     EVENT_CLASS_CATEGORY(static_cast<uint8_t>(EventCategory::Window));
 
     std::string verboseStr() const override;
@@ -42,7 +42,7 @@ namespace TVE {
   public:
     WindowUnFocus() {}
 
-    EVENT_CLASS_TYPE(WindowResize);
+    EVENT_CLASS_TYPE(WindowUnFocus);
     EVENT_CLASS_CATEGORY(static_cast<uint8_t>(EventCategory::Window));
 
     std::string verboseStr() const override;
@@ -51,7 +51,7 @@ namespace TVE {
   public:
     WindowClose() {}
 
-    EVENT_CLASS_TYPE(WindowResize);
+    EVENT_CLASS_TYPE(WindowClose);
     EVENT_CLASS_CATEGORY(static_cast<uint8_t>(EventCategory::Window));
 
     std::string verboseStr() const override;

@@ -45,8 +45,15 @@ namespace TVE {
   public:
     EventDispatcher(Event& e) 
       : _event(e) {}
-    template<typename T, typename F>
-    bool dispatch(const F& func) const;
+    template<typename T>
+    bool dispatch(const std::function<void(T&)>& func) const {
+    if (T::getStaticType() == _event.getEventType()) {
+      func(static_cast<T&>(_event));
+      _event.handled = true;
+      return true;
+    }
+    return false;
+  }
   private:
     Event& _event;
   };

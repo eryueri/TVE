@@ -19,6 +19,7 @@ namespace TVE {
 }
 
 #define TVE_TRACE(...) TVE::Logger::ConsoleLog()->trace(__VA_ARGS__)
+#define TVE_DEBUG(...) TVE::Logger::ConsoleLog()->debug(__VA_ARGS__)
 #define TVE_INFO(...) TVE::Logger::ConsoleLog()->info(__VA_ARGS__)
 #define TVE_WARN(...) TVE::Logger::ConsoleLog()->warn(__VA_ARGS__)
 #define TVE_ERROR(...) TVE::Logger::ConsoleLog()->error(__VA_ARGS__)

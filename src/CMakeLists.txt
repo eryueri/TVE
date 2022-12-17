@@ -1,5 +1,5 @@
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}
-  SUB_SOURCE_FILES)
+  SRC_SOURCE_FILES)
 
 add_subdirectory(./Core)
 add_subdirectory(./Events)
@@ -11,7 +11,7 @@ set(SOURCE_FILES
   ${EVENT_SOURCE_FILES}
   ${WINDOW_SOURCE_FILES}
   ${PLATFORM_SOURCE_FILES}
-  ${SUB_SOURCE_FILES}
+  ${SRC_SOURCE_FILES}
   PARENT_SCOPE)
 
 # accroding to the test below this method of setting SOURCE_FILES

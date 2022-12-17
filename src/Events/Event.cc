@@ -37,16 +37,6 @@ namespace TVE {
     static_cast<uint8_t>(b);
   }
 
-  template<typename T, typename F>
-  bool EventDispatcher::dispatch(const F& func) const {
-    if (T::getStaticType() == _event.getEventType()) {
-      func(static_cast<T&>(_event));
-      _event.handled = true;
-      return true;
-    }
-    return false;
-  }
-
   std::ostream& operator<<(std::ostream& os, const Event& e) {
     return os << e.verboseStr();
   }
